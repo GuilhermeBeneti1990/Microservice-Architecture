@@ -1,4 +1,4 @@
-package com.beneti.productapi.controllers;
+package com.beneti.productapi;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

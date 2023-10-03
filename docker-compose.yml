@@ -15,7 +15,7 @@ services:
     container_name: products-db
     restart: always
     environment:
-      - POSTGRES_DB=auth-db
+      - POSTGRES_DB=products-db
       - POSTGRES_USER=root
       - POSTGRES_PASSWORD=root
     ports:
@@ -39,13 +39,13 @@ services:
       - PORT=8080
     ports:
       - 8080:8080
-  product-api:
-    build: './product-api'
-    container_name: product-api
-    environment:
-      - PORT=8081
-    ports:
-      - 8081:8081
+  # product-api:
+  #   build: './product-api'
+  #   container_name: product-api
+  #   environment:
+  #     - PORT=8081
+  #   ports:
+  #     - 8081:8081
   sales-api:
     build: './sales-api'
     container_name: sales-api
