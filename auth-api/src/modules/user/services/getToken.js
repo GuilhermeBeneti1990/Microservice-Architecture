@@ -13,7 +13,7 @@ function validateRequest(email, password) {
 
 function validateUserNotFound(user) {
     if(!user) {
-        throw new UserException(httpStatus.BAD_REQUEST, "User not found!");
+        throw new UserException(httpStatus.NOT_FOUND, "User not found!");
     }
 }
 

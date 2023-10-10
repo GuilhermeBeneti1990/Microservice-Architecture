@@ -7,7 +7,6 @@ import com.beneti.productapi.modules.category.dtos.CategoryResponse;
 import com.beneti.productapi.modules.category.models.Category;
 import com.beneti.productapi.modules.category.repositories.CategoryRepository;
 import com.beneti.productapi.modules.product.services.ProductService;
-import com.beneti.productapi.modules.supplier.models.Supplier;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -2,9 +2,6 @@ package com.beneti.productapi.modules.product.services;
 
 import com.beneti.productapi.config.exceptions.ValidationException;
 import com.beneti.productapi.config.response.SuccessResponse;
-import com.beneti.productapi.modules.category.dtos.CategoryRequest;
-import com.beneti.productapi.modules.category.dtos.CategoryResponse;
-import com.beneti.productapi.modules.category.models.Category;
 import com.beneti.productapi.modules.category.services.CategoryService;
 import com.beneti.productapi.modules.product.dtos.ProductRequest;
 import com.beneti.productapi.modules.product.dtos.ProductResponse;
