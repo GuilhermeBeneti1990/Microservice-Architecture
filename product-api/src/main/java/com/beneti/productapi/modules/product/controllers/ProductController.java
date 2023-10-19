@@ -3,8 +3,10 @@ package com.beneti.productapi.modules.product.controllers;
 import com.beneti.productapi.config.response.SuccessResponse;
 import com.beneti.productapi.modules.category.dtos.CategoryRequest;
 import com.beneti.productapi.modules.category.dtos.CategoryResponse;
+import com.beneti.productapi.modules.product.dtos.ProductCheckStockRequest;
 import com.beneti.productapi.modules.product.dtos.ProductRequest;
 import com.beneti.productapi.modules.product.dtos.ProductResponse;
+import com.beneti.productapi.modules.product.dtos.ProductSalesResponse;
 import com.beneti.productapi.modules.product.services.ProductService;
 import com.beneti.productapi.modules.supplier.dtos.SupplierResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,4 +60,15 @@ public class ProductController {
     public SuccessResponse delete(@PathVariable Integer id) {
         return service.delete(id);
     }
+
+    @PostMapping("check-stock")
+    public SuccessResponse checkProductStock(@RequestBody ProductCheckStockRequest request) {
+        return service.checkProductStock(request);
+    }
+
+    @GetMapping("{id}/sales")
+    public ProductSalesResponse findProductSales(@PathVariable Integer id) {
+        return service.findProductsSales(id);
+    }
+
 }

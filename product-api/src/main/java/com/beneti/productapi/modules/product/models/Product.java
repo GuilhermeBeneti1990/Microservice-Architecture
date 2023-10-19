@@ -56,6 +56,10 @@ public class Product {
         return product;
     }
 
+    public void updateStock(Integer quantity) {
+        this.quantityAvailable = quantityAvailable - quantity;
+    }
+
     public Integer getId() {
         return id;
     }

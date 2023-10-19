@@ -8,22 +8,24 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.beans.BeanUtils;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
-public class ProductResponse {
+public class ProductSalesResponse {
 
-    public ProductResponse() {
+    public ProductSalesResponse() {
     }
 
-    public ProductResponse(Integer id, String name, Integer quantityAvailable, LocalDateTime createdAt, SupplierResponse supplier, CategoryResponse category) {
-        this.id = id;
+    public ProductSalesResponse(Integer productId, String name, Integer quantityAvailable, LocalDateTime createdAt, SupplierResponse supplier, CategoryResponse category, List<String> sales) {
+        this.productId = productId;
         this.name = name;
         this.quantityAvailable = quantityAvailable;
         this.createdAt = createdAt;
         this.supplier = supplier;
         this.category = category;
+        this.sales = sales;
     }
 
-    private Integer id;
+    private Integer productId;
     private String name;
     @JsonProperty("quantity_available")
     private Integer quantityAvailable;
@@ -32,24 +34,26 @@ public class ProductResponse {
     private LocalDateTime createdAt;
     private SupplierResponse supplier;
     private CategoryResponse category;
+    private List<String> sales;
 
-    public static ProductResponse of(Product product) {
-        var response = new ProductResponse();
-        response.setId(product.getId());
+    public static ProductSalesResponse of(Product product, List<String> sales) {
+        var response = new ProductSalesResponse();
+        response.setProductId(product.getId());
         response.setName(product.getName());
         response.setQuantityAvailable(product.getQuantityAvailable());
         response.setCreatedAt(product.getCreatedAt());
         response.setSupplier(SupplierResponse.of(product.getSupplier()));
         response.setCategory(CategoryResponse.of(product.getCategory()));
+        response.setSales(sales);
         return response;
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getProductId() {
+        return productId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setProductId(Integer productId) {
+        this.productId = productId;
     }
 
     public String getName() {
@@ -90,5 +94,13 @@ public class ProductResponse {
 
     public void setCategory(CategoryResponse category) {
         this.category = category;
+    }
+
+    public List<String> getSales() {
+        return sales;
+    }
+
+    public void setSales(List<String> sales) {
+        this.sales = sales;
     }
 }
